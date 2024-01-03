@@ -1,6 +1,13 @@
-// utility function for error handling
-export const throwError = (message) => {
-  throw new Error(message);
+// testing priority
+export const testPriority = (priority, oldPriority) => {
+  const validPriorities = ['low', 'medium', 'high'];
+  const formattedPriority = priority.toLowerCase();
+  if (!validPriorities.includes(formattedPriority)) {
+    console.warn('Invalid priority! Priority has been left as is or set to medium by default');
+    return oldPriority ? oldPriority : 'medium';
+  }
+
+  return formattedPriority;
 }
 
 // adding a sub item to a project or task
@@ -18,4 +25,9 @@ export const addSubItem = (arr, constructor, args) => {
 export const formatDate = (dateStr) => {
   const date = new Date(dateStr);
   return date;
+}
+
+// toggling completion status
+export const toggleCompletionStatus = (status) => {
+  return !status;
 }

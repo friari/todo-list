@@ -1,7 +1,11 @@
-import { createTodo } from './modules/todo.js'
+import { createTodo } from './modules/todo.js';
+import { createProject } from './modules/project.js';
 
 window.createTodo = createTodo;
+window.createProject = createProject;
 
-// const testTodo = createTodo('test');
+window.testTodoExisting = createTodo({ title: 'Already Existing Todo', priority: 'high', description: 'test description' });
+
+window.testProject = createProject('Test');
 
 // console.log(testTodo);
