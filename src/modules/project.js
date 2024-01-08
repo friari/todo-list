@@ -1,13 +1,17 @@
 import { dateProperty, checklistProperty } from './sharedProperties.js';
 import { createTodo } from './todo.js';
-import { throwError, validateString } from './utilities.js';
+import { throwError, validateString, completeAssign, defineNonWritableProperty } from './utilities.js';
 
 export const createProject = (title, dueDate = null) => {
   if (!title) return throwError('Give your Project a title!');
 
-  return {
+  let project = {
     title: validateString(title),
-    dueDate: dateProperty(dueDate),
-    todos: checklistProperty(createTodo),
   }
+
+  defineNonWritableProperty(project, "todos", {
+    value: checklistProperty(createTodo),
+  });
+
+  return completeAssign({}, project, dateProperty(dueDate));
 }

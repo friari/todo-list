@@ -8,4 +8,6 @@ window.testTodoExisting = createTodo({ title: 'Already Existing Todo', priority:
 
 window.testProject = createProject('Test');
 
-// console.log(testTodo);
+console.log(testProject);
+console.log(testProject.dueDate = new Date());
+console.log(testTodoExisting);

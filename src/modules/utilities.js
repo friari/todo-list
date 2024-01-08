@@ -19,18 +19,13 @@ export function completeAssign(target, ...sources) {
   return target;
 }
 
+// defines property that cannot be overwritten on object (more secure)
 export const defineNonWritableProperty = (obj, property, data) => {
   Object.defineProperty(obj, property, {
     ...data,
     writable: false,
     enumerable: true,
   });
-}
-
-export const defineGettersAndSetters = (property, callback, ...callbackArgs) => {
-  return {
-    
-  }
 }
 
 // utility function for error handling

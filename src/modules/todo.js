@@ -33,8 +33,6 @@ export const createBasicTodo = ({ title, priority = 'medium' }) => {
     value: toggleStatus,
   });
 
-  console.log(todo);
-
   return todo;
 }
 
@@ -53,9 +51,8 @@ export const createTodo = ({ title, description = '', priority = "medium", dueDa
     },
     get checklist() {
       return todoChecklist;
-    },
-    dueDate: dateProperty(dueDate),
+    }
   }
 
-  return completeAssign({}, basicTodo, currentTodo);
+  return completeAssign({}, basicTodo, currentTodo, dateProperty(dueDate));
 }

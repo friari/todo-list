@@ -6,7 +6,9 @@ export const checklistProperty = (constructor) => {
   let checklist = [];
 
   return {
-    view: checklist,
+    get list() {
+      return checklist;
+    },
     add: (...args) => {
       return addSubItem(checklist, constructor, args)
     },
@@ -17,16 +19,14 @@ export const checklistProperty = (constructor) => {
 
 // getting/setting date property
 export const dateProperty = (dateStr = '') => {
-  let date = formatDate(dateStr);
-
-  const getDate = () => {
-    if (!dateStr) return false;
-
-    return date;
-  }
+  let date = dateStr ? formatDate(dateStr) : false;
 
   return {
-    get: getDate,
-    set: (newDateStr) => date = formatDate(newDateStr),
+    get dueDate() {
+      return date;
+    },
+    set dueDate(newDateStr) {
+      date = formatDate(newDateStr);
+    },
   }
 }
