@@ -10,10 +10,14 @@ module.exports = {
     new HTMLWebpackPlugin({
       title: 'TODO List',
       template: 'src/index.html',
-    })
+    }),
   ],
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
       {
         test: /\.css$/i,
         use: [
@@ -32,6 +36,5 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    // assetModuleFilename: 'assets/[hash][ext][query]',
   },
 }

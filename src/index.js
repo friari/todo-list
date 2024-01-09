@@ -11,3 +11,8 @@ window.testProject = createProject('Test');
 console.log(testProject);
 console.log(testProject.dueDate = new Date());
 console.log(testTodoExisting);
+
+let testDiv = document.createElement('div');
+testDiv.innerText = "HELLO TESTING";
+
+document.querySelector('main').append(testDiv);
