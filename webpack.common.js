@@ -21,12 +21,17 @@ module.exports = {
           'css-loader',
           'postcss-loader',
         ]
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ]
   },
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, '../dist'),
     clean: true,
+    // assetModuleFilename: 'assets/[hash][ext][query]',
   },
 }
