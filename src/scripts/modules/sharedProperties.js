@@ -1,5 +1,5 @@
 import { addSubItem, formatDate } from './sharedFunctions.js';
-import { throwError } from './utilities.js';
+import { throwError } from '../utilities.js';
 
 // creating a checklist array, adding to checklist with return value of constructor param
 export const checklistProperty = (constructor) => {

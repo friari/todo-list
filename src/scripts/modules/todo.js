@@ -1,6 +1,6 @@
 import { checklistProperty, dateProperty } from './sharedProperties.js';
 import { testPriority } from './sharedFunctions.js';
-import { throwError, completeAssign, validateString, defineNonWritableProperty } from './utilities.js';
+import { throwError, completeAssign, validateString, defineNonWritableProperty } from '../utilities.js';
 
 // basic todo functionality for parent & child todos
 export const createBasicTodo = ({ title, priority = 'medium' }) => {
