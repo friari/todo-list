@@ -1,18 +1,13 @@
-import { createTodo } from './modules/todo.js';
-import { createProject } from './modules/project.js';
+import styles from './styles/styles.css';
+import initData from './scripts/data/initData.js';
+import { storeData, fetchData, convertData } from './scripts/data/handleData.js';
+import initMobileMenu, { updateMobileMenu } from './scripts/dom/mobile-menu.js';
+import { createTodo } from './scripts/modules/todo.js';
+import { createProject } from './scripts/modules/project.js';
 
-window.createTodo = createTodo;
-window.createProject = createProject;
-
-window.testTodoExisting = createTodo({ title: 'Already Existing Todo', priority: 'high', description: 'test description' });
-
-window.testProject = createProject('Test');
-
-console.log(testProject);
-console.log(testProject.dueDate = new Date());
-console.log(testTodoExisting);
-
-let testDiv = document.createElement('div');
-testDiv.innerText = "HELLO TESTING";
-
-document.querySelector('main').append(testDiv);
+let data = initData();
+console.log(data);
+storeData(data);
+let fetchedData = fetchData();
+convertData(fetchedData);
+initMobileMenu();

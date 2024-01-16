@@ -11,6 +11,7 @@ module.exports = {
       title: 'TODO List',
       template: 'src/index.html',
     }),
+    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
