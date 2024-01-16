@@ -1,12 +1,22 @@
+import { storeData, fetchData, convertData } from './handleData.js';
 import { createProject } from '../modules/project.js';
 import { createTodo } from '../modules/todo.js';
 
 const initData = () => {
+  let fetchedData = fetchData();
+
+  if (fetchedData) {
+    return convertData(fetchedData);
+  }
+
   const defaultProject = createProject('default', new Date());
-  console.log(defaultProject.dueDate);
   const initialTodo = createTodo({ title: 'Initial Todo' });
   defaultProject.todos.addExisting(initialTodo);
-  return [defaultProject];
+
+  let returnData = [defaultProject];
+  storeData(returnData);
+
+  return returnData;
 }
 
 export default initData;
