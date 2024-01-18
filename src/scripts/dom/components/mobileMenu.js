@@ -1,4 +1,4 @@
-import data from '../data/activeData';
+import data from '../../data/activeData';
 
 const populateMobileMenu = () => {
   const mobileMenuElem = document.querySelector('.mobile-menu__items');
@@ -10,6 +10,8 @@ const populateMobileMenu = () => {
     mobileMenuElem.appendChild(item);
   });
 }
+
+// TODO: addToMobileMenu function
 
 const initMobileMenu = () => {
   const mobileMenuTrigger = document.querySelector('.mobile-menu__trigger');
